@@ -20,7 +20,7 @@ http.createServer(function(req,res){
     let pathname= parseObj.pathname
     console.log("pathname",pathname)
     if(pathname==="/"){
-        fs.readFile("./template.html",function(err,data){
+        fs.readFile("./views/template.html",function(err,data){
             if(err){
                 return res.end("读取失败")
             }
@@ -40,7 +40,7 @@ http.createServer(function(req,res){
         })
 
     }else if(pathname.indexOf("/post")===0){
-        fs.readFile("."+pathname,function(err,data){
+        fs.readFile("./views/post.html",function(err,data){
             if(err){
                 return res.end("读取失败")
             }
@@ -60,10 +60,8 @@ http.createServer(function(req,res){
     res.end()
 
     }else{
-        fs.readFile("./404.html",function(err,data){
-           
+        fs.readFile("./views/404.html",function(err,data){
            res.end(data)
-
         })
     }
 
